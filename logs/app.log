@@ -1,0 +1,350 @@
+2025-02-20 23:38:08,964 - root - INFO - Starting Flask application
+2025-02-20 23:38:09,154 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-20 23:38:09,155 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-20 23:38:09,159 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:38:10,202 - root - INFO - Starting Flask application
+2025-02-20 23:38:10,235 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:38:10,242 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:38:17,562 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:38:17] "GET / HTTP/1.1" 200 -
+2025-02-20 23:38:17,672 - root - WARNING - 404 error: http://127.0.0.1:5000/favicon.ico
+2025-02-20 23:38:17,673 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:38:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-02-20 23:38:34,872 - root - WARNING - 404 error: http://127.0.0.1:5000/docs/
+2025-02-20 23:38:34,873 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:38:34] "[33mGET /docs/ HTTP/1.1[0m" 404 -
+2025-02-20 23:39:03,464 - root - WARNING - 404 error: http://127.0.0.1:5000/apidocs/
+2025-02-20 23:39:03,465 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:39:03] "[33mGET /apidocs/ HTTP/1.1[0m" 404 -
+2025-02-20 23:40:53,336 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:40:53,528 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:40:54,560 - root - INFO - Starting Flask application
+2025-02-20 23:40:54,596 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:40:54,602 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:41:05,652 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:41:05] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:41:05,854 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:41:05] "GET /flasgger_static/lib/jquery.min.js HTTP/1.1" 200 -
+2025-02-20 23:41:05,905 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:41:05] "GET /flasgger_static/swagger-ui.css HTTP/1.1" 200 -
+2025-02-20 23:41:05,936 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:41:05] "GET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1" 200 -
+2025-02-20 23:41:06,114 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:41:06] "GET /flasgger_static/swagger-ui-bundle.js HTTP/1.1" 200 -
+2025-02-20 23:41:06,288 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:41:06] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:41:06,349 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:41:06] "GET /flasgger_static/favicon-32x32.png HTTP/1.1" 200 -
+2025-02-20 23:41:59,573 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:41:59,700 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:42:00,651 - root - INFO - Starting Flask application
+2025-02-20 23:42:00,688 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:42:00,694 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:42:14,945 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:42:15,048 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:42:15,951 - root - INFO - Starting Flask application
+2025-02-20 23:42:15,979 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:42:15,986 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:42:20,141 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:20] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:42:20,179 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:20] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:42:20,182 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:20] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:42:20,183 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:20] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:42:20,186 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:20] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:42:20,509 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:20] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:42:20,521 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:20] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:42:21,912 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:21] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:42:21,945 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:21] "GET /flasgger_static/swagger-ui.css HTTP/1.1" 200 -
+2025-02-20 23:42:21,945 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:21] "GET /flasgger_static/lib/jquery.min.js HTTP/1.1" 200 -
+2025-02-20 23:42:21,945 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:21] "GET /flasgger_static/swagger-ui-bundle.js HTTP/1.1" 200 -
+2025-02-20 23:42:21,946 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:21] "GET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1" 200 -
+2025-02-20 23:42:22,176 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:22] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:42:22,181 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:22] "GET /flasgger_static/favicon-32x32.png HTTP/1.1" 200 -
+2025-02-20 23:42:39,586 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:39] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:42:39,615 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:39] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:42:39,618 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:39] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:42:39,621 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:39] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:42:39,625 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:39] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:42:39,791 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:39] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:42:39,800 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:42:39] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:43:04,712 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:43:04,821 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:43:05,708 - root - INFO - Starting Flask application
+2025-02-20 23:43:05,738 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:43:05,746 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:43:07,432 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:07] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:43:07,461 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:07] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:43:07,463 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:07] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:07,468 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:07] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:07,471 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:07] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:07,580 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:07] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:43:07,589 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:07] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:43:07,990 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:07] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:43:08,013 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:08,014 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:43:08,015 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:08,016 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:08,076 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:43:08,080 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:43:08,223 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:43:08,245 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:43:08,248 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:08,250 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:08,252 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:08,355 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:43:08,363 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:43:08,421 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:43:08,445 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:43:08,449 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:08,454 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:08,456 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:08,508 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:43:08,526 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:08] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:43:11,732 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:11] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:43:16,818 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:16] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:43:21,678 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:21] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:43:21,715 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:21] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:43:21,716 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:21] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:21,723 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:21] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:21,727 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:21] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:21,787 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:21] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:43:21,801 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:21] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:43:29,833 - root - WARNING - 404 error: http://127.0.0.1:5000/apidocs
+2025-02-20 23:43:29,834 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:29] "[33mGET /apidocs HTTP/1.1[0m" 404 -
+2025-02-20 23:43:29,946 - root - WARNING - 404 error: http://127.0.0.1:5000/favicon.ico
+2025-02-20 23:43:29,947 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-02-20 23:43:34,906 - root - WARNING - 404 error: http://127.0.0.1:5000/docs/
+2025-02-20 23:43:34,908 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:34] "[33mGET /docs/ HTTP/1.1[0m" 404 -
+2025-02-20 23:43:38,257 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:38] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:43:38,352 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:38] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:43:38,357 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:38] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:38,359 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:38] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:38,360 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:38] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:43:39,173 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:43:39] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:44:13,850 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:44:13,978 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:44:14,867 - root - INFO - Starting Flask application
+2025-02-20 23:44:14,895 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:44:14,902 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:44:18,988 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:44:19,097 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:44:20,012 - root - INFO - Starting Flask application
+2025-02-20 23:44:20,042 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:44:20,048 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:44:49,556 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:44:49,711 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:44:50,795 - root - INFO - Starting Flask application
+2025-02-20 23:44:50,827 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:44:50,835 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:45:15,237 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:45:15,357 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:45:16,271 - root - INFO - Starting Flask application
+2025-02-20 23:45:16,297 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:45:16,304 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:45:29,579 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:45:29,694 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:45:30,598 - root - INFO - Starting Flask application
+2025-02-20 23:45:30,628 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:45:30,636 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:45:40,814 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:45:40,922 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:45:41,806 - root - INFO - Starting Flask application
+2025-02-20 23:45:41,834 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:45:41,840 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:45:48,987 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:45:49,094 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:45:49,981 - root - INFO - Starting Flask application
+2025-02-20 23:45:50,008 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:45:50,015 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:45:55,817 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:55] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:45:55,845 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:55] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:45:55,846 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:55] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:55,848 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:55] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:55,853 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:55] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:56,012 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:45:56,028 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:45:56,549 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:45:56,579 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:45:56,579 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:56,584 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:56,588 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:56,684 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:45:56,697 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:45:56,814 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:45:56,836 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:45:56,838 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:56,838 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:56,844 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:56,899 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:45:56,921 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:56] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,050 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:45:57,075 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,075 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,078 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,081 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,161 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:45:57,210 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,235 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:45:57,344 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,347 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,352 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,353 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,412 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:45:57,429 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:45:57,475 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,479 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,481 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,482 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,533 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:45:57,551 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,637 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:45:57,661 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,662 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,664 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,665 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,722 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:45:57,740 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,807 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:45:57,833 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,833 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,834 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,834 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,942 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:45:57,944 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:45:57,996 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:57] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:45:58,023 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:58] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:45:58,025 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:58] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:58,027 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:58] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:58,029 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:58] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:45:58,079 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:58] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:45:58,095 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:45:58] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:49:53,877 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:49:54,018 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:49:55,044 - root - INFO - Starting Flask application
+2025-02-20 23:49:55,077 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:49:55,084 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:49:57,523 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:57] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:49:57,617 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:57] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:49:57,620 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:57] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:49:57,621 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:57] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:49:57,624 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:57] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:49:57,690 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:57] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:49:57,692 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:57] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,206 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:49:58,231 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,231 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,233 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,235 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,341 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:49:58,343 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,436 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:49:58,463 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,469 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,471 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,473 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,527 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:49:58,544 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,674 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:49:58,701 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,705 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,706 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,710 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,762 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:49:58,779 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,833 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:49:58,859 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,861 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,861 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,862 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:49:58,960 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:49:58,973 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:49:58] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:50:56,011 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:50:56,118 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:50:57,016 - root - INFO - Starting Flask application
+2025-02-20 23:50:57,044 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:50:57,051 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:51:09,297 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:51:09,404 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:51:10,281 - root - INFO - Starting Flask application
+2025-02-20 23:51:10,309 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:51:10,316 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:51:23,532 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:51:23,653 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:51:24,628 - root - INFO - Starting Flask application
+2025-02-20 23:51:24,659 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:51:24,667 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:51:35,880 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:51:35,987 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:51:36,875 - root - INFO - Starting Flask application
+2025-02-20 23:51:36,904 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:51:36,911 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:51:47,084 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-20 23:51:47,188 - werkzeug - INFO -  * Restarting with stat
+2025-02-20 23:51:48,135 - root - INFO - Starting Flask application
+2025-02-20 23:51:48,168 - werkzeug - WARNING -  * Debugger is active!
+2025-02-20 23:51:48,174 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-20 23:54:31,291 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:54:31] "GET /docs HTTP/1.1" 200 -
+2025-02-20 23:54:31,320 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:54:31] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-20 23:54:31,322 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:54:31] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-20 23:54:31,325 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:54:31] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-20 23:54:31,326 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:54:31] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-20 23:54:31,457 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:54:31] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-20 23:54:31,459 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:54:31] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-20 23:54:59,803 - root - INFO - Starting file upload process
+2025-02-20 23:54:59,814 - root - INFO - Processing upload for file: 5.pdf
+2025-02-20 23:54:59,817 - root - INFO - Starting conversion for 5.pdf
+2025-02-20 23:54:59,912 - root - INFO - Successfully processed file: 5.pdf
+2025-02-20 23:54:59,912 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:54:59] "POST /upload HTTP/1.1" 200 -
+2025-02-20 23:56:44,171 - root - INFO - Starting file upload process
+2025-02-20 23:56:44,177 - root - INFO - Processing upload for file: 739530465-26052024-ANZ-Bank-Statement.pdf
+2025-02-20 23:56:44,184 - root - INFO - Starting conversion for 739530465-26052024-ANZ-Bank-Statement.pdf
+2025-02-20 23:56:44,639 - root - INFO - Successfully processed file: 739530465-26052024-ANZ-Bank-Statement.pdf
+2025-02-20 23:56:44,640 - werkzeug - INFO - 127.0.0.1 - - [20/Feb/2025 23:56:44] "POST /upload HTTP/1.1" 200 -
+2025-02-21 00:00:38,416 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-21 00:00:38,531 - werkzeug - INFO -  * Restarting with stat
+2025-02-21 00:00:39,454 - root - INFO - Starting Flask application
+2025-02-21 00:00:39,484 - werkzeug - WARNING -  * Debugger is active!
+2025-02-21 00:00:39,491 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-21 00:01:08,990 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-21 00:01:09,106 - werkzeug - INFO -  * Restarting with stat
+2025-02-21 00:03:06,122 - root - INFO - Starting Flask application
+2025-02-21 00:03:06,178 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-21 00:03:06,178 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-21 00:03:06,180 - werkzeug - INFO -  * Restarting with stat
+2025-02-21 00:03:07,106 - root - INFO - Starting Flask application
+2025-02-21 00:03:07,138 - werkzeug - WARNING -  * Debugger is active!
+2025-02-21 00:03:07,144 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-21 00:03:10,474 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:03:10] "GET /docs HTTP/1.1" 200 -
+2025-02-21 00:03:10,574 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:03:10] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-21 00:03:10,578 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:03:10] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-21 00:03:10,580 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:03:10] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-21 00:03:10,584 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:03:10] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-21 00:03:10,798 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:03:10] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-21 00:03:10,805 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:03:10] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-21 00:03:39,398 - root - INFO - Starting file upload process
+2025-02-21 00:03:39,410 - root - INFO - Processing upload for file: 739530465-26052024-ANZ-Bank-Statement.pdf
+2025-02-21 00:03:39,414 - root - INFO - Successfully uploaded file: 739530465-26052024-ANZ-Bank-Statement.pdf
+2025-02-21 00:03:39,415 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:03:39] "POST /upload HTTP/1.1" 200 -
+2025-02-21 00:07:55,529 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ashre\\Desktop\\upwork\\pdfbackend\\app.py', reloading
+2025-02-21 00:07:55,642 - werkzeug - INFO -  * Restarting with stat
+2025-02-21 00:10:21,324 - root - INFO - Starting Flask application
+2025-02-21 00:10:21,373 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-21 00:10:21,373 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-21 00:10:21,375 - werkzeug - INFO -  * Restarting with stat
+2025-02-21 00:10:22,262 - root - INFO - Starting Flask application
+2025-02-21 00:10:22,301 - werkzeug - WARNING -  * Debugger is active!
+2025-02-21 00:10:22,307 - werkzeug - INFO -  * Debugger PIN: 521-643-633
+2025-02-21 00:10:22,362 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:10:22] "GET /docs HTTP/1.1" 200 -
+2025-02-21 00:10:22,411 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:10:22] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-21 00:10:22,411 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:10:22] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-21 00:10:22,417 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:10:22] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-21 00:10:22,426 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:10:22] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-21 00:10:22,918 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:10:22] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-21 00:10:22,925 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:10:22] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-21 00:10:26,872 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:10:26] "GET /docs HTTP/1.1" 200 -
+2025-02-21 00:10:26,904 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:10:26] "[36mGET /flasgger_static/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-02-21 00:10:26,907 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:10:26] "[36mGET /flasgger_static/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-02-21 00:10:26,912 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:10:26] "[36mGET /flasgger_static/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-02-21 00:10:26,915 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:10:26] "[36mGET /flasgger_static/lib/jquery.min.js HTTP/1.1[0m" 304 -
+2025-02-21 00:10:27,043 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:10:27] "GET /apispec.json HTTP/1.1" 200 -
+2025-02-21 00:10:27,057 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:10:27] "[36mGET /flasgger_static/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-02-21 00:10:37,658 - root - INFO - Starting file upload process
+2025-02-21 00:10:37,662 - root - INFO - Processing upload for file: ETicket.pdf
+2025-02-21 00:10:37,667 - root - INFO - Successfully uploaded file: ETicket.pdf
+2025-02-21 00:10:37,668 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:10:37] "POST /upload HTTP/1.1" 200 -
+2025-02-21 00:11:17,634 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:11:17] "OPTIONS /convert HTTP/1.1" 200 -
+2025-02-21 00:11:17,939 - root - INFO - Starting conversion request
+2025-02-21 00:11:17,940 - root - INFO - Converting ETicket.pdf to formats: ['excel']
+2025-02-21 00:11:18,068 - root - INFO - Successfully converted ETicket.pdf
+2025-02-21 00:11:18,069 - werkzeug - INFO - 127.0.0.1 - - [21/Feb/2025 00:11:18] "POST /convert HTTP/1.1" 200 -
