@@ -3,7 +3,7 @@ import os
 import mimetypes
 import fitz  # PyMuPDF
 from openpyxl import Workbook
-from openpyxl.styles import Font, PatternFill, Alignment
+from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from datetime import datetime
 import json
 import csv
@@ -14,6 +14,7 @@ from werkzeug.utils import secure_filename
 from logging.handlers import RotatingFileHandler
 from flasgger import Swagger, swag_from
 from flask_cors import CORS
+from table_extractor import TableExtractor
 
 # Configure upload folder
 UPLOAD_FOLDER = 'uploads'
@@ -318,100 +319,176 @@ def format_excel_sheet(sheet, headers=True):
         adjusted_width = min(max_length + 2, 50)  # Cap width at 50 characters
         sheet.column_dimensions[column_letter].width = adjusted_width
 
-def convert_pdf_to_excel(pdf_path):
+def extract_table_data(pdf_path):
+    """
+    Extract tabular data from a PDF file.
+    Returns a list of tables, where each table is a list of rows.
+    Each row is a list of cell values.
+    """
     try:
-        # Open the PDF file
-        pdf_document = fitz.open(pdf_path)
-        
-        # Create a new Excel workbook
-        workbook = Workbook()
-        sheet = workbook.active
-        sheet.title = "PDF Content"
-        
-        # Initialize row counter
-        current_row = 1
+        # Open the PDF
+        doc = fitz.open(pdf_path)
+        all_tables = []
         
         # Process each page
-        for page_num in range(pdf_document.page_count):
-            page = pdf_document[page_num]
+        for page_num in range(len(doc)):
+            page = doc[page_num]
             
-            # Write page number as a header
-            header = f"Page {page_num + 1}"
+            # Find tables on the page
+            tables = page.find_tables()
+            if not tables:
+                continue
+                
+            # Process each table found on the page
+            for table in tables:
+                table_data = []
+                
+                # Extract cells from the table
+                for row_cells in table.extract():
+                    # Clean and process each cell in the row
+                    row_data = [
+                        cell.strip() if isinstance(cell, str) else str(cell)
+                        for cell in row_cells
+                        if cell is not None
+                    ]
+                    
+                    # Only add non-empty rows
+                    if any(cell for cell in row_data):
+                        table_data.append(row_data)
+                
+                # Only add tables that have data
+                if table_data:
+                    all_tables.append(table_data)
+        
+        return all_tables
+        
+    except Exception as e:
+        logger.error(f"Error extracting tables from PDF: {str(e)}")
+        raise Exception(f"Failed to extract tables: {str(e)}")
+
+def convert_tables_to_excel(tables, output_path):
+    """
+    Convert extracted tables to Excel format with proper formatting.
+    """
+    try:
+        workbook = Workbook()
+        sheet = workbook.active
+        sheet.title = "Tables"
+        
+        current_row = 1
+        table_border = Border(
+            left=Side(style='thin'),
+            right=Side(style='thin'),
+            top=Side(style='thin'),
+            bottom=Side(style='thin')
+        )
+        
+        # Process each table
+        for table_num, table in enumerate(tables, 1):
+            # Add table header/separator
+            header = f"Table {table_num}"
             sheet.cell(row=current_row, column=1, value=header)
             sheet.cell(row=current_row, column=1).font = Font(bold=True, size=12)
             current_row += 1
             
-            # Detect the best extraction method for this page
-            extraction_method = detect_content_type(page)
-            
-            # Extract text using the determined method
-            content = extract_text_from_page(page, extraction_method)
-            
-            # Process and write the extracted content
-            if extraction_method == "blocks":
-                # Group blocks by approximate y-position (for potential table rows)
-                y_threshold = 5  # pixels
-                current_y = None
-                current_column = 1
+            if not table:
+                continue
                 
-                for text, (x, y) in content:
-                    if not text.strip():
-                        continue
-                        
-                    if current_y is None or abs(y - current_y) > y_threshold:
-                        # New row
-                        current_y = y
-                        current_row += 1
-                        current_column = 1
+            # Get the maximum number of columns in this table
+            max_cols = max(len(row) for row in table)
+            
+            # Write table data
+            for row_num, row in enumerate(table):
+                for col_num, cell_value in enumerate(row, 1):
+                    cell = sheet.cell(row=current_row, column=col_num)
+                    cell.value = cell_value
+                    cell.border = table_border
                     
-                    cell = sheet.cell(row=current_row, column=current_column)
-                    cell.value = text.strip()
+                    # Format header row
+                    if row_num == 0:
+                        cell.font = Font(bold=True)
+                        cell.fill = PatternFill(start_color="E0E0E0", end_color="E0E0E0", fill_type="solid")
+                    
                     cell.alignment = Alignment(wrap_text=True)
-                    current_column += 1
                 
-            elif extraction_method == "words":
-                # Combine words into lines based on y-position
-                current_line = []
-                current_y = None
-                y_threshold = 5  # pixels
-                
-                for text, (x, y) in content:
-                    if current_y is None:
-                        current_y = y
-                    
-                    if abs(y - current_y) > y_threshold:
-                        # New line
-                        if current_line:
-                            sheet.cell(row=current_row, column=1, value=' '.join(current_line))
-                            current_row += 1
-                            current_line = []
-                        current_y = y
-                    
-                    current_line.append(text)
-                
-                # Don't forget the last line
-                if current_line:
-                    sheet.cell(row=current_row, column=1, value=' '.join(current_line))
-                    current_row += 1
+                current_row += 1
             
-            else:  # Simple text extraction
-                text = content[0][0]
-                lines = text.split('\n')
-                for line in lines:
-                    if line.strip():
-                        sheet.cell(row=current_row, column=1, value=line.strip())
-                        current_row += 1
-            
-            # Add a blank row between pages
+            # Add spacing between tables
             current_row += 1
         
-        # Apply formatting
-        format_excel_sheet(sheet)
+        # Auto-adjust column widths
+        for column in sheet.columns:
+            max_length = 0
+            column_letter = column[0].column_letter
+            
+            for cell in column:
+                try:
+                    if len(str(cell.value)) > max_length:
+                        max_length = len(str(cell.value))
+                except:
+                    pass
+            
+            adjusted_width = min(max_length + 2, 50)  # Cap width at 50 characters
+            sheet.column_dimensions[column_letter].width = adjusted_width
+        
+        # Save the workbook
+        workbook.save(output_path)
+        return output_path
+        
+    except Exception as e:
+        logger.error(f"Error converting tables to Excel: {str(e)}")
+        raise Exception(f"Failed to convert tables to Excel: {str(e)}")
+
+def convert_tables_to_csv(tables, output_path):
+    """
+    Convert extracted tables to CSV format.
+    """
+    try:
+        with open(output_path, 'w', newline='', encoding='utf-8') as csvfile:
+            writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+            
+            # Process each table
+            for table_num, table in enumerate(tables, 1):
+                # Add table header/separator
+                writer.writerow([f"Table {table_num}"])
+                
+                if not table:
+                    continue
+                
+                # Write table data
+                for row in table:
+                    writer.writerow(row)
+                
+                # Add blank row between tables
+                writer.writerow([])
+        
+        return output_path
+        
+    except Exception as e:
+        logger.error(f"Error converting tables to CSV: {str(e)}")
+        raise Exception(f"Failed to convert tables to CSV: {str(e)}")
+
+def convert_pdf_to_excel(pdf_path):
+    """
+    Convert a PDF file to Excel format, focusing on bank statement data.
+    Creates a single continuous sheet of transaction records.
+    """
+    try:
+        # Initialize table extractor
+        extractor = TableExtractor()
+        
+        # Extract tables from PDF
+        df = extractor.extract_tables(pdf_path)
+        
+        if df.empty:
+            # Fallback to original text extraction if no tables found
+            logger.warning("No tables found, falling back to text extraction")
+            return convert_pdf_to_excel_fallback(pdf_path)
         
         # Ensure converted files directory exists
         os.makedirs(CONVERTED_FILES_FOLDER, exist_ok=True)
         
-        # Generate output filename based on input filename and timestamp
+        # Generate output filename
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         base_filename = os.path.splitext(os.path.basename(pdf_path))[0]
         excel_path = os.path.join(
@@ -419,16 +496,132 @@ def convert_pdf_to_excel(pdf_path):
             f"{base_filename}_{timestamp}.xlsx"
         )
         
-        # Save the Excel file
+        # Create Excel workbook with better formatting
+        workbook = Workbook()
+        sheet = workbook.active
+        sheet.title = "Transaction Records"
+        
+        # Define styles
+        header_font = Font(bold=True, size=11)
+        header_fill = PatternFill(start_color="E0E0E0", end_color="E0E0E0", fill_type="solid")
+        header_alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
+        
+        amount_alignment = Alignment(horizontal='right', vertical='center')
+        date_alignment = Alignment(horizontal='center', vertical='center')
+        text_alignment = Alignment(horizontal='left', vertical='center', wrap_text=True)
+        
+        border = Border(
+            left=Side(style='thin'),
+            right=Side(style='thin'),
+            top=Side(style='thin'),
+            bottom=Side(style='thin')
+        )
+        
+        # Write headers
+        for col, header in enumerate(df.columns, 1):
+            cell = sheet.cell(row=1, column=col)
+            cell.value = header
+            cell.font = header_font
+            cell.fill = header_fill
+            cell.border = border
+            cell.alignment = header_alignment
+        
+        # Write data with appropriate formatting
+        for row_idx, row in enumerate(df.values, 2):
+            for col_idx, value in enumerate(row, 1):
+                cell = sheet.cell(row=row_idx, column=col_idx)
+                cell.value = value
+                cell.border = border
+                
+                # Apply column-specific formatting
+                column_name = df.columns[col_idx - 1]
+                if 'Date' in column_name:
+                    cell.alignment = date_alignment
+                elif any(x in column_name for x in ['Withdrawals', 'Deposits', 'Balance', 'Amount']):
+                    cell.alignment = amount_alignment
+                    # Format as currency if it's a number
+                    if isinstance(value, (int, float)):
+                        cell.number_format = '#,##0.00'
+                else:
+                    cell.alignment = text_alignment
+        
+        # Auto-adjust column widths with minimum and maximum values
+        min_width = 10
+        max_width = 50
+        for column in sheet.columns:
+            max_length = 0
+            column_letter = column[0].column_letter
+            
+            # Find the maximum length in the column
+            for cell in column:
+                try:
+                    if len(str(cell.value)) > max_length:
+                        max_length = len(str(cell.value))
+                except:
+                    pass
+            
+            # Apply width constraints
+            adjusted_width = max(min(max_length + 2, max_width), min_width)
+            sheet.column_dimensions[column_letter].width = adjusted_width
+        
+        # Freeze the header row
+        sheet.freeze_panes = 'A2'
+        
+        # Save the workbook
         workbook.save(excel_path)
-        
-        # Close the PDF document
-        pdf_document.close()
-        
         return excel_path
-    
+        
     except Exception as e:
+        logger.error(f"Error in PDF to Excel conversion: {str(e)}")
         raise Exception(f"Failed to convert PDF to Excel: {str(e)}")
+
+def convert_pdf_to_csv(pdf_path):
+    """
+    Convert a PDF file to CSV format, focusing on bank statement data.
+    Creates a single continuous CSV file of transaction records.
+    """
+    try:
+        # Initialize table extractor
+        extractor = TableExtractor()
+        
+        # Extract tables from PDF
+        df = extractor.extract_tables(pdf_path)
+        
+        if df.empty:
+            # Fallback to original text extraction if no tables found
+            logger.warning("No tables found, falling back to text extraction")
+            return convert_pdf_to_csv_fallback(pdf_path)
+        
+        # Ensure converted files directory exists
+        os.makedirs(CONVERTED_FILES_FOLDER, exist_ok=True)
+        
+        # Generate output filename
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        base_filename = os.path.splitext(os.path.basename(pdf_path))[0]
+        csv_path = os.path.join(
+            CONVERTED_FILES_FOLDER,
+            f"{base_filename}_{timestamp}.csv"
+        )
+        
+        # Save to CSV with proper formatting
+        df.to_csv(
+            csv_path,
+            index=False,
+            encoding='utf-8-sig',  # Include BOM for Excel compatibility
+            quoting=csv.QUOTE_ALL,  # Quote all fields
+            date_format='%Y-%m-%d',  # Consistent date format
+            float_format='%.2f'  # Format numbers with 2 decimal places
+        )
+        
+        return csv_path
+        
+    except Exception as e:
+        logger.error(f"Error in PDF to CSV conversion: {str(e)}")
+        raise Exception(f"Failed to convert PDF to CSV: {str(e)}")
+
+# Rename original conversion functions as fallback methods
+convert_pdf_to_excel_fallback = convert_pdf_to_excel
+convert_pdf_to_csv_fallback = convert_pdf_to_csv
 
 def clean_text_for_csv(text):
     """
@@ -480,57 +673,6 @@ def extract_structured_text(page):
         rows.append(current_row)
 
     return rows
-
-def convert_pdf_to_csv(pdf_path):
-    """
-    Convert a PDF file to CSV format, preserving structure where possible.
-    Returns the path to the created CSV file.
-    """
-    try:
-        # Open the PDF file
-        pdf_document = fitz.open(pdf_path)
-        
-        # Ensure converted files directory exists
-        os.makedirs(CONVERTED_FILES_FOLDER, exist_ok=True)
-        
-        # Generate output filename based on input filename and timestamp
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        base_filename = os.path.splitext(os.path.basename(pdf_path))[0]
-        csv_path = os.path.join(
-            CONVERTED_FILES_FOLDER,
-            f"{base_filename}_{timestamp}.csv"
-        )
-        
-        # Open CSV file for writing with UTF-8 encoding
-        with open(csv_path, 'w', newline='', encoding='utf-8') as csv_file:
-            writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
-            
-            # Process each page
-            for page_num in range(pdf_document.page_count):
-                page = pdf_document[page_num]
-                
-                # Write page marker
-                writer.writerow([f"Page {page_num + 1}"])
-                
-                # Extract and write structured content
-                rows = extract_structured_text(page)
-                
-                # Write the rows to CSV
-                for row in rows:
-                    # Clean each cell in the row
-                    cleaned_row = [clean_text_for_csv(cell) for cell in row]
-                    writer.writerow(cleaned_row)
-                
-                # Add a blank row between pages
-                writer.writerow([])
-        
-        # Close the PDF document
-        pdf_document.close()
-        
-        return csv_path
-        
-    except Exception as e:
-        raise Exception(f"Failed to convert PDF to CSV: {str(e)}")
 
 @app.route('/')
 def hello_world():

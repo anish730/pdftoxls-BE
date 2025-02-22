@@ -2,4 +2,11 @@ flask==3.0.2
 PyMuPDF==1.23.26
 openpyxl==3.1.2
 flasgger==0.9.7.1
-flask-cors==4.0.0 
+flask-cors==4.0.0
+camelot-py==0.11.0
+tabula-py==2.9.0
+pandas==2.2.0
+numpy==1.26.3
+opencv-python==4.9.0.80  # Required by camelot
+ghostscript==0.7  # Required by camelot
+JPype1==1.4.1  # Required for better Tabula performance 
