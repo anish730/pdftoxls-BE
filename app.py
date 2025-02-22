@@ -480,6 +480,90 @@ def convert_tables_to_csv(tables, output_path):
         logger.error(f"Error converting tables to CSV: {str(e)}")
         raise Exception(f"Failed to convert tables to CSV: {str(e)}")
 
+def convert_pdf_to_excel_fallback(pdf_path):
+    """
+    Fallback method for PDF to Excel conversion when table extraction fails.
+    Uses text-based extraction instead of table detection.
+    """
+    try:
+        # Open the PDF
+        doc = fitz.open(pdf_path)
+        all_rows = []
+        
+        # Process each page
+        for page_num in range(len(doc)):
+            page = doc[page_num]
+            # Extract text in a structured way
+            rows = extract_structured_text(page)
+            all_rows.extend(rows)
+        
+        # Generate output filename
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        base_filename = os.path.splitext(os.path.basename(pdf_path))[0]
+        excel_path = os.path.join(
+            CONVERTED_FILES_FOLDER,
+            f"{base_filename}_{timestamp}_fallback.xlsx"
+        )
+        
+        # Create Excel workbook
+        workbook = Workbook()
+        sheet = workbook.active
+        sheet.title = "Extracted Text"
+        
+        # Write data
+        for row_num, row in enumerate(all_rows, 1):
+            for col_num, value in enumerate(row, 1):
+                cell = sheet.cell(row=row_num, column=col_num)
+                cell.value = value
+        
+        # Apply formatting
+        format_excel_sheet(sheet)
+        
+        # Save the workbook
+        workbook.save(excel_path)
+        return excel_path
+        
+    except Exception as e:
+        logger.error(f"Error in fallback PDF to Excel conversion: {str(e)}")
+        raise ConversionError(f"Fallback conversion failed: {str(e)}")
+
+def convert_pdf_to_csv_fallback(pdf_path):
+    """
+    Fallback method for PDF to CSV conversion when table extraction fails.
+    Uses text-based extraction instead of table detection.
+    """
+    try:
+        # Open the PDF
+        doc = fitz.open(pdf_path)
+        all_rows = []
+        
+        # Process each page
+        for page_num in range(len(doc)):
+            page = doc[page_num]
+            # Extract text in a structured way
+            rows = extract_structured_text(page)
+            all_rows.extend(rows)
+        
+        # Generate output filename
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        base_filename = os.path.splitext(os.path.basename(pdf_path))[0]
+        csv_path = os.path.join(
+            CONVERTED_FILES_FOLDER,
+            f"{base_filename}_{timestamp}_fallback.csv"
+        )
+        
+        # Write to CSV
+        with open(csv_path, 'w', newline='', encoding='utf-8-sig') as csvfile:
+            writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+            for row in all_rows:
+                writer.writerow(row)
+        
+        return csv_path
+        
+    except Exception as e:
+        logger.error(f"Error in fallback PDF to CSV conversion: {str(e)}")
+        raise ConversionError(f"Fallback conversion failed: {str(e)}")
+
 def convert_pdf_to_excel(pdf_path):
     """
     Convert a PDF file to Excel format, focusing on bank statement data.
@@ -493,7 +577,7 @@ def convert_pdf_to_excel(pdf_path):
         df = extractor.extract_tables(pdf_path)
         
         if df.empty:
-            # Fallback to original text extraction if no tables found
+            # Fallback to text-based extraction if no tables found
             logger.warning("No tables found, falling back to text extraction")
             return convert_pdf_to_excel_fallback(pdf_path)
         
@@ -600,7 +684,7 @@ def convert_pdf_to_csv(pdf_path):
         df = extractor.extract_tables(pdf_path)
         
         if df.empty:
-            # Fallback to original text extraction if no tables found
+            # Fallback to text-based extraction if no tables found
             logger.warning("No tables found, falling back to text extraction")
             return convert_pdf_to_csv_fallback(pdf_path)
         
@@ -632,8 +716,8 @@ def convert_pdf_to_csv(pdf_path):
         raise Exception(f"Failed to convert PDF to CSV: {str(e)}")
 
 # Rename original conversion functions as fallback methods
-convert_pdf_to_excel_fallback = convert_pdf_to_excel
-convert_pdf_to_csv_fallback = convert_pdf_to_csv
+convert_pdf_to_excel_fallback = convert_pdf_to_excel_fallback
+convert_pdf_to_csv_fallback = convert_pdf_to_csv_fallback
 
 def clean_text_for_csv(text):
     """
