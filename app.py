@@ -99,6 +99,7 @@ template = {
     ]
 }
 
+
 # Configure logging
 def setup_logging():
     # Create logs directory if it doesn't exist
@@ -134,6 +135,7 @@ def setup_logging():
     
     return logger
 
+
 # Initialize logging
 logger = setup_logging()
 
@@ -147,6 +149,7 @@ app.config['MAX_CONTENT_LENGTH'] = MAX_FILE_SIZE
 # Initialize Swagger with template and config
 swagger = Swagger(app, template=template, config=swagger_config)
 
+
 # Add CORS headers to all responses
 @app.after_request
 def after_request(response):
@@ -155,13 +158,16 @@ def after_request(response):
     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
     return response
 
+
 class ConversionError(Exception):
     """Custom exception for conversion-related errors"""
     pass
 
+
 class ValidationError(Exception):
     """Custom exception for validation-related errors"""
     pass
+
 
 def handle_error(e: Exception, context: str = "") -> tuple:
     """
@@ -202,12 +208,15 @@ def handle_error(e: Exception, context: str = "") -> tuple:
             'error_id': error_id
         }, 500
 
+
+#test
 def allowed_file(filename):
     try:
         return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
     except Exception as e:
         logger.error(f"Error checking allowed file: {str(e)}")
         return False
+
 
 def is_pdf(file):
     try:
@@ -237,6 +246,7 @@ def is_pdf(file):
         logger.error(f"Unexpected error in is_pdf: {str(e)}")
         return False
 
+
 def extract_text_from_page(page, extraction_method="blocks"):
     """
     Extract text from a page using different methods based on content structure.
@@ -264,6 +274,7 @@ def extract_text_from_page(page, extraction_method="blocks"):
     else:  # "text"
         # Simple text extraction - fallback method
         return [(page.get_text("text"), (0, 0))]
+
 
 def detect_content_type(page):
     """
@@ -295,6 +306,7 @@ def detect_content_type(page):
     
     # Default to simple text for basic content
     return "text"
+
 
 def format_excel_sheet(sheet, headers=True):
     """
@@ -635,6 +647,7 @@ def clean_text_for_csv(text):
     # Trim whitespace
     return text.strip()
 
+
 def extract_structured_text(page):
     """
     Extract text from a page in a structured way, attempting to preserve
@@ -681,6 +694,7 @@ def hello_world():
         'version': '1.0.0',
         'status': 'running'
     })
+
 
 @app.route('/upload', methods=['POST'])
 @swag_from({
@@ -768,6 +782,7 @@ def upload_file():
 
     except Exception as e:
         return handle_error(e, "upload_file")
+
 
 @app.route('/convert', methods=['POST'])
 @swag_from({
@@ -914,6 +929,7 @@ def convert_file():
     except Exception as e:
         return handle_error(e, "convert_file")
 
+
 def is_safe_file_to_download(filename):
     """
     Check if the file is safe to download based on its extension and existence.
@@ -932,6 +948,7 @@ def is_safe_file_to_download(filename):
         return False
     
     return True
+
 
 @app.route('/download/<filename>')
 @swag_from({
@@ -1022,6 +1039,7 @@ def download_file(filename):
     except Exception as e:
         return handle_error(e, "download_file")
 
+
 # Error handlers for common HTTP errors
 @app.errorhandler(404)
 def not_found_error(error):
@@ -1031,6 +1049,7 @@ def not_found_error(error):
         'details': 'The requested resource was not found'
     }), 404
 
+
 @app.errorhandler(405)
 def method_not_allowed_error(error):
     logger.warning(f"405 error: {request.method} {request.url}")
@@ -1039,6 +1058,7 @@ def method_not_allowed_error(error):
         'details': 'The method is not allowed for the requested URL'
     }), 405
 
+
 @app.errorhandler(413)
 def request_entity_too_large_error(error):
     logger.warning(f"413 error: File too large")
@@ -1046,6 +1066,7 @@ def request_entity_too_large_error(error):
         'error': 'File Too Large',
         'details': f'The file exceeds the maximum allowed size of {MAX_FILE_SIZE/1024/1024}MB'
     }), 413
+
 
 if __name__ == '__main__':
     logger.info("Starting Flask application")
