@@ -1013,31 +1013,39 @@ def download_file(filename):
         # Get MIME type
         mime_type = ALLOWED_DOWNLOAD_EXTENSIONS.get(file_ext)
         
-        # Set additional headers for different file types
-        headers = {
-            'Content-Disposition': f'attachment; filename="{filename}"'
-        }
-        
-        # If it's a CSV file, add UTF-8 BOM for Excel compatibility
-        if file_ext == 'csv':
-            headers['Content-Type'] = f'{mime_type}; charset=utf-8-sig'
-        
-        logger.info(f"Sending file: {filename}")
-        
-        return send_from_directory(
+        # Create response with proper headers
+        response = send_from_directory(
             CONVERTED_FILES_FOLDER,
             filename,
             mimetype=mime_type,
             as_attachment=True,
-            download_name=filename,
-            etag=True,
-            max_age=0,
-            conditional=True,
-            headers=headers
+            download_name=filename
         )
         
+        # Add headers for better browser compatibility
+        response.headers['Content-Disposition'] = f'attachment; filename="{filename}"'
+        if file_ext == 'csv':
+            response.headers['Content-Type'] = f'{mime_type}; charset=utf-8-sig'
+        
+        logger.info(f"Sending file: {filename}")
+        return response
+        
+    except ValidationError as e:
+        return jsonify({
+            'error': 'Validation Error',
+            'details': str(e)
+        }), 400
+    except FileNotFoundError as e:
+        return jsonify({
+            'error': 'File Not Found',
+            'details': str(e)
+        }), 404
     except Exception as e:
-        return handle_error(e, "download_file")
+        logger.error(f"Error in download_file: {str(e)}")
+        return jsonify({
+            'error': 'Internal Server Error',
+            'details': 'Failed to download file'
+        }), 500
 
 
 # Error handlers for common HTTP errors

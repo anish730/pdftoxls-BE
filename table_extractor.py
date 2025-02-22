@@ -5,6 +5,7 @@ import re
 from typing import List, Dict, Any, Optional, Tuple
 import logging
 from datetime import datetime
+import warnings
 
 logger = logging.getLogger(__name__)
 
@@ -17,10 +18,13 @@ class TableExtractor:
     def __init__(self):
         # Common patterns for bank statements
         self.date_pattern = re.compile(r'\d{2}(?:\s+)?(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)(?:\s+)?\d{2,4}|\d{2}/\d{2}/\d{2,4}|\d{2}-\d{2}-\d{2,4}|\d{4}-\d{2}-\d{2}|\d{2}\s+[A-Z]{3}', re.IGNORECASE)
-        self.amount_pattern = re.compile(r'(?:[\$£€])?(?:\d{1,3}(?:,\d{3})*|\d+)(?:\.\d{2})?')
+        self.amount_pattern = re.compile(r'(?:[$£€])?(?:\d{1,3}(?:,\d{3})*|\d+)(?:\.\d{2})?')
         
         # Standard column names for ANZ bank statements
         self.standard_columns = ['Date', 'Description', 'Withdrawals ($)', 'Deposits ($)', 'Balance ($)']
+        
+        # Suppress FutureWarning from pandas
+        warnings.filterwarnings('ignore', category=FutureWarning)
         
     def parse_header_data(self, df: pd.DataFrame) -> Dict[str, str]:
         """
@@ -51,10 +55,11 @@ class TableExtractor:
             
         return header_data
     
-    def parse_pdf_to_excel(self, file_path: str) -> pd.DataFrame:
+    def parse_pdf_to_excel(self, file_path: str, fallback_attempted: bool = False) -> pd.DataFrame:
         """
         Parses PDF tabular data into a DataFrame.
         Handles multi-row transactions and mixed header/transaction data.
+        Added fallback_attempted parameter to prevent infinite loops.
         """
         try:
             # Read all pages from the PDF
@@ -68,7 +73,12 @@ class TableExtractor:
             )
             
             if not dfs:
-                raise ValueError("No tables found in the PDF.")
+                if not fallback_attempted:
+                    logger.warning("No tables found, attempting alternative extraction method")
+                    return self.extract_tables_fallback(file_path)
+                else:
+                    logger.error("No tables found in PDF after fallback attempt")
+                    return pd.DataFrame(columns=self.standard_columns)
             
             # Process and combine all tables
             all_transactions = []
@@ -250,12 +260,99 @@ class TableExtractor:
             logger.error(f"Error parsing PDF: {str(e)}")
             raise Exception(f"Failed to parse PDF: {str(e)}")
     
+    def extract_tables_fallback(self, pdf_path: str) -> pd.DataFrame:
+        """
+        Alternative method for extracting tables when the primary method fails.
+        Uses a different approach to avoid infinite recursion.
+        """
+        try:
+            # Try using lattice mode instead of stream mode
+            dfs = tabula.read_pdf(
+                pdf_path,
+                pages='all',
+                lattice=True,  # Use lattice mode instead of stream
+                multiple_tables=True,
+                guess=False,  # Don't guess table structure
+                pandas_options={'header': None}
+            )
+            
+            if not dfs:
+                logger.error("No tables found in PDF using fallback method")
+                return pd.DataFrame(columns=self.standard_columns)
+            
+            # Combine all tables into one DataFrame
+            combined_df = pd.concat(dfs, ignore_index=True)
+            
+            # Clean up the data
+            combined_df = combined_df.replace('', np.nan).dropna(how='all')
+            
+            # Try to identify columns based on content
+            df_final = pd.DataFrame(columns=self.standard_columns)
+            
+            for idx, row in combined_df.iterrows():
+                transaction = {
+                    'Date': '',
+                    'Description': '',
+                    'Withdrawals ($)': 0.0,
+                    'Deposits ($)': 0.0,
+                    'Balance ($)': 0.0
+                }
+                
+                # Process each cell in the row
+                desc_parts = []
+                for val in row:
+                    if pd.isna(val):
+                        continue
+                    
+                    val_str = str(val).strip()
+                    if self.is_date(val_str):
+                        transaction['Date'] = val_str
+                    elif self.is_amount(val_str):
+                        amount = self.clean_amount(val_str)
+                        if amount is not None:
+                            if 'CR' in val_str:
+                                transaction['Deposits ($)'] = amount
+                            elif transaction['Balance ($)'] == 0:
+                                transaction['Balance ($)'] = amount
+                            else:
+                                transaction['Withdrawals ($)'] = amount
+                    else:
+                        desc_parts.append(val_str)
+                
+                transaction['Description'] = ' '.join(desc_parts).strip()
+                
+                # Only add rows that have at least a date or description
+                if transaction['Date'] or transaction['Description']:
+                    df_final = pd.concat([df_final, pd.DataFrame([transaction])], ignore_index=True)
+            
+            return df_final
+            
+        except Exception as e:
+            logger.error(f"Error in fallback extraction: {str(e)}")
+            return pd.DataFrame(columns=self.standard_columns)
+
     def extract_tables(self, pdf_path: str) -> pd.DataFrame:
         """
         Main entry point for table extraction.
         Uses parse_pdf_to_excel internally.
         """
-        return self.parse_pdf_to_excel(pdf_path)
+        try:
+            df = self.parse_pdf_to_excel(pdf_path, fallback_attempted=False)
+            
+            # Ensure proper data types for amount columns
+            for col in ['Withdrawals ($)', 'Deposits ($)', 'Balance ($)']:
+                try:
+                    # Fixed escape sequence in regex
+                    df[col] = pd.to_numeric(df[col].replace(r'[$,]', '', regex=True), errors='coerce').fillna(0.0)
+                except Exception as e:
+                    logger.warning(f"Error converting column {col} to numeric: {str(e)}")
+                    df[col] = 0.0
+            
+            return df
+            
+        except Exception as e:
+            logger.error(f"Error in table extraction: {str(e)}")
+            return pd.DataFrame(columns=self.standard_columns)
 
     def is_date(self, text: str) -> bool:
         """Check if a string matches ANZ date format."""
