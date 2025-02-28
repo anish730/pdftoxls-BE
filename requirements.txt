@@ -7,6 +7,7 @@ camelot-py==0.11.0
 tabula-py==2.9.0
 pandas==2.2.0
 numpy==1.26.3
+gunicorn-23.0.0
 opencv-python==4.9.0.80  # Required by camelot
 ghostscript==0.7  # Required by camelot
 JPype1==1.4.1  # Required for better Tabula performance
