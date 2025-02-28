@@ -9,4 +9,4 @@ pandas==2.2.0
 numpy==1.26.3
 opencv-python==4.9.0.80  # Required by camelot
 ghostscript==0.7  # Required by camelot
-JPype1-binary==1.21.2 # Required for better Tabula performance
+JPype1-binary # Required for better Tabula performance
